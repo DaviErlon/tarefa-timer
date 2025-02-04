@@ -2,10 +2,12 @@
 #include "pico/stdlib.h"
 #include "pico/time.h"
 
+// Leds usados na simulação
 #define LED_R 11
 #define LED_Y 12 
 #define LED_G 13
 
+// Função de inicialização das GPIO dos leds
 void gpio_config(){
     gpio_init(LED_R);
     gpio_init(LED_Y);
@@ -16,6 +18,7 @@ void gpio_config(){
     gpio_set_dir(LED_G, GPIO_OUT);
 }
 
+// Função de callback  
 bool semaforo(struct repeating_timer *t){
 
     static uint8_t led_ativo = LED_R;
